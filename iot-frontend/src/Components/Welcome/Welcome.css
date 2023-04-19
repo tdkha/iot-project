@@ -1,0 +1,35 @@
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+    border-radius: 12px;
+    height: 400px;
+    min-width: 20%;
+    background-color: rgb(218, 218, 218);
+  }
+  .welcome-title {
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+ 
+  button {
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    align-self: center;
+    margin-top: 1rem;
+    font-size: 1rem;
+    padding: 0.65rem;
+    border-radius: 4px;
+    color: white;
+    background-color: rgb(161, 161, 161);
+  }
+
+button a{
+  text-decoration: none;
+  color: white;
+  background-color: rgb(161, 161, 161);
+}
+
