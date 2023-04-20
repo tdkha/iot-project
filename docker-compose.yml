@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  backend:
+    image: i-iot-backend
+    deploy:
+      replicas: 1
+    build: 
+      context: ./
+      dockerfile: ./iot-backend/Dockerfile
+    volumes:
+      - ./iot-backend:/iot-app/backend
+    networks:
+      - iot-network
+  frontend:
+    build: ./iot-frontend
+    volumes:
+      - ./iot-frontend:/iot-app/frontend
+    networks:
+      - iot-network
+  nginx:
+    image: nginx
+    deploy:
+      replicas: 1
+    networks:
+      - iot-network
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - backend
+      - frontend
+networks:
+  iot-network:
