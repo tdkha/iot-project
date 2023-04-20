@@ -9,7 +9,7 @@ const useRefreshToken = () => {
     const navigate = useNavigate()
     const refresh = async () => {
         try{
-            const response = await axios.get('http://localhost:8000/auth/refreshtoken',{
+            const response = await axios.get('lab-iiot.northeurope.cloudapp.azure.com/auth/refreshtoken',{
                 withCredentials: true
             });
             const token = response?.data?.accessToken;

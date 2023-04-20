@@ -5,7 +5,7 @@ import { setToken , setExpireTime} from "../redux/reducers/authReducer";
 async function refreshAccessToken() {
 
     try {
-        const response = await axios.get('http://localhost:8000/auth/refreshtoken',{
+        const response = await axios.get('lab-iiot.northeurope.cloudapp.azure.com/auth/refreshtoken',{
             withCredentials: true
         });
         const token = response?.data?.accessToken;
@@ -20,7 +20,7 @@ async function refreshAccessToken() {
   }
 
 const api = axios.create({
-    baseURL: "http://localhost:8000",
+    baseURL: "lab-iiot.northeurope.cloudapp.azure.com",
     withCredentials: true,
     headers: {
       "Content-Type": "application/json"

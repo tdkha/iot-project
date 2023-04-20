@@ -42,7 +42,7 @@ const Manager = () => {
         const scanner_state = classList.find(ele => ele=='busy'||ele=='free')
         const store_name = scannerList[0].store_name;
         if(busy){
-            await api.post('http://localhost:8000/scanner/scanner-state-false',
+            await api.post('lab-iiot.northeurope.cloudapp.azure.com/scanner/scanner-state-false',
                 JSON.stringify(
                 {
                     "scanner_name": scanner,
@@ -56,7 +56,7 @@ const Manager = () => {
                 }).join(' ');
             button_target.innerText = 'Free'
         }else{
-            await api.post('http://localhost:8000/scanner/scanner-state-true',
+            await api.post('lab-iiot.northeurope.cloudapp.azure.com/scanner/scanner-state-true',
                 JSON.stringify(
                     {
                         "scanner_name": scanner,
@@ -76,7 +76,7 @@ const Manager = () => {
         setSelectedOptions(selectedOption);
         console.log(`Option selected:`, selectedOption.value);
 
-        const response = await axios.post('http://localhost:8000/manager/get-weekly-profit',
+        const response = await axios.post('lab-iiot.northeurope.cloudapp.azure.com/manager/get-weekly-profit',
         JSON.stringify(
             {
                 "store_id": work_at_store_id,
@@ -107,7 +107,7 @@ const Manager = () => {
     }
 
     const fetchWarehouse = async() =>{
-        const response = await api.post('http://localhost:8000/manager/warehouseinfo',JSON.stringify(
+        const response = await api.post('lab-iiot.northeurope.cloudapp.azure.com/manager/warehouseinfo',JSON.stringify(
             {
                 "store_id": work_at_store_id
             }))
@@ -117,7 +117,7 @@ const Manager = () => {
     }
 
     const fetchScanner = async() => {
-        const response = await axios.post('http://localhost:8000/scanner/getscannerinfo',
+        const response = await axios.post('lab-iiot.northeurope.cloudapp.azure.com/scanner/getscannerinfo',
         JSON.stringify(
             {
                 "store_id": work_at_store_id
@@ -134,7 +134,7 @@ const Manager = () => {
     }
 
     const fetchOptions = async() => {
-        const response = await axios.get('http://localhost:8000/product/get-product-type');
+        const response = await axios.get('lab-iiot.northeurope.cloudapp.azure.com/product/get-product-type');
         const data = response.data;
         const formattedOptions = data.map((option) => ({
             value: option,
