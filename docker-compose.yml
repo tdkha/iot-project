@@ -12,6 +12,8 @@ services:
       - ./iot-backend:/iot-project/iot-backend
     networks:
       - iot-network
+    ports:
+      - "8000:8000"
   frontend:
     image: i-iot-frontend
     deploy:
@@ -21,6 +23,8 @@ services:
       - ./iot-frontend:/var/www/iot-app/
     networks:
       - iot-network
+    ports:
+      - "3000:3000"
   nginx:
     image: nginx
     deploy:
