@@ -8,7 +8,7 @@ const saleDB = {
         const date = new Date().toISOString().slice(0, 19).replace('T', ' ');
         try{
             const [connection] = await pool.query(`
-                INSERT INTO test_sale (
+                INSERT INTO sale (
                     bank_id,
                     product_id,
                     quantity,
@@ -37,8 +37,8 @@ const saleDB = {
         try{
             if(type == 'All'){
                 const [connection] = await pool.execute( `
-                SELECT product_id , (select name from product where id = product_id)as 'product_name', sum(quantity)as 'quantity' ,product.type, test_sale.date 
-                    FROM test_sale 
+                SELECT product_id , (select name from product where id = product_id)as 'product_name', sum(quantity)as 'quantity' ,product.type,sale.date 
+                    FROM sale
                     JOIN product ON product.id = test_sale.product_id
                     WHERE (date between ? and ?) 
                     AND store_id = ?
@@ -48,8 +48,8 @@ const saleDB = {
                 return connection;
             }else{
                 const [connection] = await pool.execute( `
-                SELECT product_id , (select name from product where id = product_id)as 'product_name', sum(quantity)as 'quantity' ,product.type, test_sale.date 
-                    FROM test_sale 
+                SELECT product_id , (select name from product where id = product_id)as 'product_name', sum(quantity)as 'quantity' ,product.type, sale.date 
+                    FROM sale
                     JOIN product ON product.id = test_sale.product_id
                     WHERE (date between ? and ?) 
                     AND store_id = ?
