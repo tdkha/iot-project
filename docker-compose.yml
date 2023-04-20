@@ -13,6 +13,9 @@ services:
     networks:
       - iot-network
   frontend:
+    image: i-iot-frontend
+    deploy:
+      replicas: 1
     build: ./iot-frontend
     volumes:
       - ./iot-frontend:/var/www/iot-app/
