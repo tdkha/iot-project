@@ -39,7 +39,7 @@ const saleDB = {
                 const [connection] = await pool.execute( `
                 SELECT product_id , (select name from product where id = product_id)as 'product_name', sum(quantity)as 'quantity' ,product.type,sale.date 
                     FROM sale
-                    JOIN product ON product.id = test_sale.product_id
+                    JOIN product ON product.id = sale.product_id
                     WHERE (date between ? and ?) 
                     AND store_id = ?
                     GROUP BY product_id
@@ -50,7 +50,7 @@ const saleDB = {
                 const [connection] = await pool.execute( `
                 SELECT product_id , (select name from product where id = product_id)as 'product_name', sum(quantity)as 'quantity' ,product.type, sale.date 
                     FROM sale
-                    JOIN product ON product.id = test_sale.product_id
+                    JOIN product ON product.id = sale.product_id
                     WHERE (date between ? and ?) 
                     AND store_id = ?
                     AND product.type = ?

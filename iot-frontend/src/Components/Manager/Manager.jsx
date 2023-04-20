@@ -90,6 +90,7 @@ const Manager = () => {
                 withCredentials: true
             });
             const data = response.data;
+            console.log(data);
         setfetchOptionList(data);
     };
 
@@ -238,7 +239,7 @@ const Manager = () => {
                         >
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="product_name" />
-                        <YAxis dataKey="profit"/>
+                        <YAxis dataKey="profit" domain={[0, 200]}/>
                         <Tooltip />
                         <Legend />
                         <Bar dataKey="quantity" fill="blue" />

@@ -5,7 +5,7 @@ const warehouseDB = {
         const [ connection ]= await  pool.execute(
             `
             SELECT t2.name , (SELECT name FROM supplier WHERE id = t1.supplier_id) AS "supplier_name",t2.price , t1.quantity 
-            FROM test_warehouse t1
+            FROM warehouse t1
             JOIN product t2
             ON t1.product_id = t2.id
             WHERE t1.store_id = ?
@@ -16,7 +16,7 @@ const warehouseDB = {
     modifyWareHouse : async(product_id , quantity) => {
         const [connection] = await pool.query(
             `
-            UPDATE test_warehouse
+            UPDATE warehouse
             SET quantity = quantity - ?
             WHERE product_id = ?
             `

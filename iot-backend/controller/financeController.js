@@ -17,7 +17,6 @@ const financeController = {
         try{
             const store_id = req.body.store_id;
             const type = req.body.type;
-
             const weekly_sale = await saleDB.getWeeklySale(store_id,type);
             
             const response = await Promise.all(
