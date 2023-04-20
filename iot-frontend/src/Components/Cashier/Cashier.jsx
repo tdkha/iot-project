@@ -22,7 +22,7 @@ const Cashier = () => {
     const { scanner_name, store_name} = useSelector(state => state.scanner);
     const productLists = useSelector(state => state.products);
 
-    const socket = io('lab-iiot.northeurope.cloudapp.azure.com', {
+    const socket = io(' ', {
         withCredentials: true,
         headers: { 
             'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ const Cashier = () => {
             console.log("Refresh")
             e.preventDefault()
           // Update the scanner state in the database
-            await axios.post('lab-iiot.northeurope.cloudapp.azure.com/scanner/scanner-state-false',
+            await axios.post(' /scanner/scanner-state-false',
                 JSON.stringify({
                 scanner_name: scanner_name,
                 store_name: store_name
@@ -94,7 +94,7 @@ const Cashier = () => {
                 "store_name":store_name
             };
 
-            await axios.post('lab-iiot.northeurope.cloudapp.azure.com/scanner/scanner-state-false',
+            await axios.post(' /scanner/scanner-state-false',
             JSON.stringify({
                 scanner_name:scanner_name,
                 store_name:store_name
@@ -127,7 +127,7 @@ const Cashier = () => {
             if(productLists.length ==0){
                 setErrMsg('No item in the cart. Please add one');
             }else{
-                    const response = await productLists.map( async(element) => await axios.post('lab-iiot.northeurope.cloudapp.azure.com/sale/addsale',
+                    const response = await productLists.map( async(element) => await axios.post(' /sale/addsale',
                 JSON.stringify({
                     "card_number": 181003,
                     "product_info": {

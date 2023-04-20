@@ -31,7 +31,7 @@ const Login = () => {
     const handleSubmit = async (e) =>{
         e.preventDefault();
         try{
-            const response = await axios.post("lab-iiot.northeurope.cloudapp.azure.com/auth/login",
+            const response = await axios.post(" /auth/login",
                 JSON.stringify({
                     username: user,
                     password: pwd

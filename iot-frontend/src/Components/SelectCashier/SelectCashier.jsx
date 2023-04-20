@@ -36,7 +36,7 @@ const SelectCashier = () => {
         
         if (scanner.length !==0 && store.length !== 0 ){
             try{
-                const response = await axios.post('lab-iiot.northeurope.cloudapp.azure.com/scanner/scanner-state-true',
+                const response = await axios.post(' /scanner/scanner-state-true',
                 JSON.stringify({
                     scanner_name:scanner,
                     store_name:store
