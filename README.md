@@ -4,6 +4,7 @@ The project contains a scanner built with Arduino board. However, it is made pos
 
 ## Technology stack
 The Supermarket App is built using the following technologies:
+
 [![My Skills](https://skillicons.dev/icons?i=js,mysql,nodejs,react,css,docker)](https://skillicons.dev)
 - React: A popular JavaScript library for building user interfaces.
 - Redux: A state management library for JavaScript applications.
